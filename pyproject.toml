@@ -1,0 +1,15 @@
+[project]
+name = "labscript-windows"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "labscript-suite>=3.3.0",
+    "pyqt5>=5.15.11",
+]
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'win32' and platform_machine == 'AMD64'",
+]
