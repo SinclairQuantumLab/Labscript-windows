@@ -33,7 +33,7 @@
     uv run labscript-profile-create -n imaq_lab -c
     ```
 
-    See [this page](https://labscriptsuite.org/en/latest/installation/regular-pypi/) to find details on the `[OPTIONS]`.
+    See [this page](https://labscriptsuite.org/en/latest/installation/regular-pypi/) for the available options for the `labscript-profile-create` command.
 
 7. Run the below to create the shortcuts in Desktop:
 
