@@ -79,3 +79,4 @@ mv .\userlib\labscriptlib\imaq_lab\connection_table.py .\userlib\labscriptlib\im
 cp -r .\imaq-library\labscriptlib_prawn-demo\* userlib\labscriptlib\imaq_lab\
  
 ```
+Make sure to open `BLACS`, recompile and restart it, and open `BLACS` again after closing an error dialog that pops up.
