@@ -56,7 +56,7 @@ That's it!
 
 1. Rename the existing demo `connection_table.py` to `connection_table_demo.py` and copy the `connection_table.py` for the Prawn demo pi picos' and demo puse sequence:
     ```powershell
-    mv .\userlib\labscriptlib\imaq_lab\connection_table.
+    mv .\userlib\labscriptlib\imaq_lab\connection_table.py .\userlib\labscriptlib\imaq_lab\connection_table_dummy.py
     cp -r .\imaq-library\labscriptlib_prawn-demo\* userlib\labscriptlib\imaq_lab\
     ```
 
