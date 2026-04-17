@@ -1,0 +1,23 @@
+# >>>>> for Labscript >>>>>
+
+userlib/
+labconfig/
+app_saved_configs/
+logs/
+
+# <<<<< for Labscript <<<<<
+
+# >>> `uv` default gitignore >>>
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# <<< `uv` default gitignore <<<

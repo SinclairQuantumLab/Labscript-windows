@@ -1,0 +1,36 @@
+from labscript import start, stop, add_time_marker, AnalogOut, DigitalOut
+#from labscript_devices.DummyPseudoclock.labscript_devices import DummyPseudoclock
+from labscript_devices.DummyIntermediateDevice import DummyIntermediateDevice
+from labscript_devices.PrawnBlaster.labscript_devices import PrawnBlaster
+from labscript_devices.PrawnDO.labscript_devices import PrawnDO
+
+def ConnectionTable():
+    #PrawnBlaster definition
+    PrawnBlaster(
+        name='prawnblaster',
+        com_port='COM10',
+        num_pseudoclocks=2,
+        pico_board='pico1'
+    )
+
+    #PrawnDo Definition
+    PrawnDO(
+        name='prawn_do',
+        com_port='COM11',
+        clock_line=prawnblaster.clocklines[1],
+        pico_board='pico1'
+    )
+
+    DigitalOut('do0', prawn_do.outputs, 'do0')
+    DigitalOut('do1', prawn_do.outputs, 'do1')
+    DigitalOut('do10', prawn_do.outputs, 'do10')
+    DigitalOut('d011', prawn_do.outputs, 'do11')
+
+if __name__ == '__main__':
+    ConnectionTable()
+    # Begin issuing labscript primitives
+    # start() elicits the commencement of the shot
+    start()
+
+    # Stop the experiment shot with stop()
+    stop(1.0)

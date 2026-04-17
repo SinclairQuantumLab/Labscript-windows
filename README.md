@@ -1,8 +1,12 @@
-# Quick Labscript installation in Windows with `uv`
+# IMAQ `labscript-suit` for Windows
+
+This repo contains `uv` project to seamlessly install `labscript-suite` and customization and for the use in IMAQ Lab, Josiah Sinclair Group.
+
+## Quick Labscript installation in Windows with `uv`
 
 1. Make sure to back up and remove all the files bekow from the previous installation:
    - Labscript suite & profile folder: `%USERPROFILE%\Labscript-suite`
-   - `Experiment` folder
+   - `Experiments` folder
    - Shortcut files in `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs`:
       - `BLACS - the labscript suite.lnk`
       - `lyse - the labscript suite.lnk`
@@ -15,27 +19,20 @@
 
     ```powershell
     cd $HOME
-    git clone https://github.com/SinclairQuantumLab/labscript-suite-windows.git
+    git clone https://github.com/SinclairQuantumLab/imaq-labscript-suite-windows.git labscript-suite
     ```
 
-    `labscript-suite-windows` folder should have been created.
+    `labscript-suite` folder should have been created.
 
 
 4.  Go to the created folder and run `uv sync`:
 
     ```powershell
-    cd labscript-suite-windows
+    cd labscript-suite
     uv sync
     ```
     This will install `labscript-suite` and required packages.
 
-5. **(IMPORTANT) RENAME THE `labscript-suite-windows` FOLDER TO `labscript-suite`!!!**
-    ```powershell
-    cd ..\
-    mv labscript-suite-windows labscript-suite
-    cd labscript-suite
-    ```
-    > **NOTE**: We cannot take this step before running `uv sync` because of a limitation in `uv`: it cannot install the package that has the same name to the project folder. 
 
 6. Run the below to create Labscript profile names as `imaq_lab`:
 
@@ -52,3 +49,30 @@
     ```
 
 That's it!
+
+## Customizing for IMAQ Lab
+
+### Creating PrawnBlaster & PrawnDO demo
+
+1. Rename the existing demo `connection_table.py` to `connection_table_demo.py` and copy the `connection_table.py` for the Prawn demo pi picos' and demo puse sequence:
+    ```powershell
+    mv .\userlib\labscriptlib\imaq_lab\connection_table.
+    cp -r .\imaq-library\labscriptlib_prawn-demo\* userlib\labscriptlib\imaq_lab\
+    ```
+
+## One-shot setup script
+
+```powershell
+cd $HOME
+### 1. Install `labscript-suite` and create profile and Desktop shortcuts
+git clone https://github.com/SinclairQuantumLab/imaq-labscript-suite-windows.git labscript-suite
+cd labscript-suite
+uv sync
+uv run labscript-profile-create -n imaq_lab -c
+uv run desktop-app install blacs lyse runmanager runviewer
+
+### 2. Apply IMAQ customization
+# PrawnBlaster & PrawnDO demo
+mv .\userlib\labscriptlib\imaq_lab\connection_table.py .\userlib\labscriptlib\imaq_lab\connection_table_dummy.py
+cp -r .\imaq-library\labscriptlib_prawn-demo\* userlib\labscriptlib\imaq_lab\
+```

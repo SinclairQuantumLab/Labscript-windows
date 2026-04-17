@@ -1,7 +1,7 @@
 [project]
-name = "labscript-suite-windows"
+name = "imaq-labscript-suite-windows"
 version = "0.1.0"
-description = "Add your description here"
+description = "labscript-suite installation and customization and for IMAQ Lab, Josiah Sinclair Group"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
